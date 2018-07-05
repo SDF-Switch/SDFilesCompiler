@@ -1,0 +1,27 @@
+[submodule "src/GagOrder"]
+	path = src/GagOrder
+	url = https://github.com/Adubbz/Gag-Order.git
+[submodule "src/Atmosphere"]
+	path = src/Atmosphere
+	url = https://github.com/Atmosphere-NX/Atmosphere.git
+[submodule "src/hbm"]
+	path = src/hbm
+	url = https://github.com/StevenMattera/nx-hbmenu.git
+[submodule "src/hbl"]
+	path = src/hbl
+	url = https://github.com/switchbrew/nx-hbloader.git
+[submodule "src/AppstoreNX"]
+	path = src/AppstoreNX
+	url = https://github.com/vgmoose/appstorenx.git
+[submodule "src/SDFilesUpdater"]
+	path = src/SDFilesUpdater
+	url = https://github.com/StevenMattera/SDFilesUpdater.git
+[submodule "src/libnx"]
+	path = src/libnx
+	url = https://github.com/switchbrew/libnx.git
+[submodule "src/nx-dreport"]
+	path = src/nx-dreport
+	url = https://github.com/Thog/nx-dreport.git
+[submodule "src/EdiZon"]
+	path = src/EdiZon
+	url = https://github.com/thomasnet-mc/EdiZon.git
