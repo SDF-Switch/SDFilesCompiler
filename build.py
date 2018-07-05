@@ -3,17 +3,41 @@
 import os
 import shutil
 import time
+import webbrowser
 
 
 wurzel = os.getcwd()
 
 print("""
-####################################################################################################################################
-# It could be that a permissions error will pop up, fix it by restarting the python script! We don\'t really know why that happens #                                                                                                                      #
-####################################################################################################################################
+                        https://github.com/tumGER/
+   _____ _____  ______ _ _            _____                      _ _           
+  / ____|  __ \|  ____(_) |          / ____|                    (_) |          
+ | (___ | |  | | |__   _| | ___  ___| |     ___  _ __ ___  _ __  _| | ___ _ __ 
+  \___ \| |  | |  __| | | |/ _ \/ __| |    / _ \| '_ ` _ \| '_ \| | |/ _ \ '__|
+  ____) | |__| | |    | | |  __/\__ \ |___| (_) | | | | | | |_) | | |  __/ |   
+ |_____/|_____/|_|    |_|_|\___||___/\_____\___/|_| |_| |_| .__/|_|_|\___|_|   
+                                                          | |                  
+                                                          |_|  
+                        By: @_tomGER (tumGER on Github)
+
+                        Currently only supports Windows
+
+It could be that a permissions error will pop up, fix it by restarting the python script! We don\'t really know why that happens!
 """)
 
-time.sleep(4)
+DevkitYes = input("\nHave you installed DevkitPRO with Switch support yet? (1 = Yes, 2 = No) ")
+if DevkitYes == 2:
+    print("Remember to select \"Switch Development\" in the Installer when asked to choose components!")
+    time.sleep(3)
+    webbrowser.open("https://github.com/devkitPro/installer/releases/download/v3.0.3/devkitProUpdater-3.0.3.exe")
+    quit()
+# I wanted to use wget here until I realized that wget isn't a standard on windows
+
+
+Thomleg = input("\n Do you want free games and a backup loader? (1 = Yes, 2 = No) ")
+if Thomleg == 1:
+    webbrowser.open("https://www.youtube.com/watch?v=DLzxrzFCyOs")
+
 
 if os.path.exists("compiled"):
     shutil.rmtree("compiled")
