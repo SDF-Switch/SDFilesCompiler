@@ -39,8 +39,16 @@ if Thomleg == 1:
     webbrowser.open("https://www.youtube.com/watch?v=DLzxrzFCyOs")
     quit()
 
+print("\nUpdating ...")
+time.sleep(1)
 os.system("pacman -S devkitA64 switch-tools switch-curl switch-bzip2 switch-curl switch-freetype switch-libjpeg-turbo switch-sdl2 switch-sdl2_gfx switch-sdl2_image switch-sdl2_ttf switch-zlib switch-libpng")
+
+print("\n Getting Dependencies ...")
+time.sleep(1)
 os.system("git clone https://github.com/tumGER/SDFilesCompiler.git SDFilesCompiler") #So it isn't depended on a full clone and I could just use the .exe as a standalone file
+
+print("Creating folder structure ...")
+time.sleep(1)
 
 if os.path.exists("compiled"):
     shutil.rmtree("compiled")
@@ -55,19 +63,31 @@ os.makedirs("compiled/atmosphere/titles/010000000000100D")
 os.makedirs("compiled/atmosphere/titles/010000000000100D/exefs")
 os.makedirs("compiled/switch")
 os.makedirs("compiled/switch/appstore")
+os.makedirs("compiled/switch/EdiZon")
+os.makedirs("compiled/switch/SDFilesUpdater")
 os.makedirs("compiled/modules/")
 os.makedirs("compiled/modules/newfirm")
 os.makedirs("compiled/modules/oldfirm")
 os.makedirs("compiled/modules/atmosphere")
 os.makedirs("compiled/modules/oldlayered")
 
+print("Copying precreated file ...")
+time.sleep(1)
+
+shutil.copyfile(s + "settings.cfg", "compiled/switch/SDFilesUpdater/settings.cfg")
+shutil.copyfile(s + "hekate_ipl.ini", "compiled/hekate_ipl.ini")
 shutil.copyfile(s + "rtld.stub", "compiled/atmosphere/titles/010000000000100D/exefs/rtld.stub")
+shutil.copytree(s + "EdiZonPackage", "compiled/EdiZon")
+
+print("Updating Submodules ...")
+time.sleep(1)
 
 os.chdir(wurzel + "/SDFilesCompiler/")
 os.system("git submodule update --remote --force")
 os.chdir(wurzel)
+shutil.copytree(s + "AppstoreNX/res", "compiled/switch/appstore/res")
 
-os.chdir(s + "LibNX/")
+os.chdir(s + "libnx/")
 os.system("make --silent")
 print("Compiling LibNX") 
 time.sleep(1) #Seems to fix a bug where the system checks the files but windows was too slow to show them
@@ -81,7 +101,7 @@ time.sleep(1)
 os.chdir(wurzel)
 shutil.copyfile(s + "hbm/hbm.nro", "compiled/hbmenu.nro")
 
-os.chdir(s +"hbl/")
+os.chdir(s + "hbl/")
 os.system("make --silent")
 print("Copying hbl")
 time.sleep(1)
@@ -96,10 +116,17 @@ print("Copying GagOrder")
 time.sleep(1) 
 shutil.copyfile(s + "GagOrder/GagOrder.nro", "compiled/switch/gagorder.nro")
 
-os.chdir("src/appstore/")
+os.chdir(s + "AppstoreNX/")
 os.system("make --silent")
 print("Copying AppstoreNX")
 time.sleep(1)
 os.chdir(wurzel)
-shutil.copyfile(s + "appstore/appstore.nro", "compiled/switch/appstore.nro")
+shutil.copyfile(s + "AppstoreNX/appstore.nro", "compiled/switch/appstore/appstore.nro")
+
+os.chdir(s + "SDFilesUpdater/")
+os.system("make --silent")
+print("Copying SDFilesUpdater")
+time.sleep(1)
+os.chdir(wurzel)
+shutil.copyfile(s + "SDFilesUpdater/SDFilesUpdater.nro", "compiled/switch/SDFilesUpdater/SDFilesUpdater.nro")
 
