@@ -25,3 +25,6 @@
 [submodule "Hbm"]
 	path = Hbm
 	url = https://github.com/tumGER/nx-hbmenu.git
+[submodule "sys-ftpd"]
+	path = sys-ftpd
+	url = https://github.com/jakibaki/sys-ftpd.git
