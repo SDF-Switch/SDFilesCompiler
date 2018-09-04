@@ -28,3 +28,9 @@
 [submodule "sys-ftpd"]
 	path = sys-ftpd
 	url = https://github.com/jakibaki/sys-ftpd.git
+[submodule "Tinfoil"]
+	path = Tinfoil
+	url = https://github.com/Adubbz/Tinfoil.git
+[submodule "ReiNX"]
+	path = ReiNX
+	url = https://github.com/Reisyukaku/ReiNX
